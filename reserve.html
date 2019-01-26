@@ -45,7 +45,7 @@
                     <label for="">Unique ID</label>
                     <input type="text" class="form-control" id="reserveId">
                 </div>
-                <button class="btn btn-primary">Submit</button>
+                <button class="btn btn-primary" id="submit">Submit</button>
             </form>
 
         </div>
@@ -55,9 +55,30 @@
                 <a>API Table Link</a> <a>API Wait Lists</a>
             </div>
         </footer>
-        
+
     </div>
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <script type="text/javascript">
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+            let newReservation = {
+                "customerName": $("#reserveName").val().trim(),
+                "customerEmail": $("#reserveEmail").val().trim(),
+                "phoneNumber": $("#reservePhone").val().trim(),
+                "customerID": $("#reserveId").val().trim(),
+            };
+            console.log(newReservation)
+            $.post("/api/tables", newReservation)
+        .then(function(data) {
+          console.log("add.html", data);
+          
+        });
+
+    });
+    </script>
 
 </body>
+
 
 </html>

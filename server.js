@@ -25,14 +25,14 @@ let reservations = [
 let waitingList = [];
 
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "home.html"));
+    res.sendFile(path.join(__dirname, "frontend.html"));
 });
   
 app.get("/tables", function(req, res) {
 res.sendFile(path.join(__dirname, "tables.html"));
 });
 
-app.get("/add", function(req, res) {
+app.get("/reserve", function(req, res) {
 res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
